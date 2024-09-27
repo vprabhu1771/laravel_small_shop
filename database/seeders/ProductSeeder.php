@@ -100,7 +100,7 @@ class ProductSeeder extends Seeder
                 'price'=> 1100
             ],
             [
-                'category_id'=> $air_Conditioners->id,
+                'category_id'=> $air_conditioners->id,
                 'brand_id'=> $lg->id,
                 'name'=> 'LG Dual Inverter AC',
                 'price'=> 600
@@ -131,7 +131,7 @@ class ProductSeeder extends Seeder
             ],
             [
                 'category_id'=> $refrigerators->id,
-                'brand_id'=> $$whirlpool->id,
+                'brand_id'=> $whirlpool->id,
                 'name'=> 'Whirlpool 240L Fridge',
                 'price'=> 450
             ]
