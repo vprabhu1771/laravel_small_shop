@@ -16,7 +16,7 @@ class StateSeeder extends Seeder
     public function run(): void
     {
         //
-        $country = Country::where('name', 'india')->first();
+        $country = Country::where('name', 'India')->first();
 
         $states = [
             [$country->id, "Andaman and Nicobar Islands", "AN"],
