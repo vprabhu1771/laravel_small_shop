@@ -23,12 +23,12 @@ class Product extends Model
         'description'
     ];
 
-    public function category(): BelongsTo
+    public function category()
     {
         return $this->belongsTo(Category::class);
     }
 
-    public function brand(): BelongsTo
+    public function brand()
     {
         return $this->belongsTo(Brand::class);
     }
