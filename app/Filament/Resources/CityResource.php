@@ -76,4 +76,9 @@ class CityResource extends Resource
             'edit' => Pages\EditCity::route('/{record}/edit'),
         ];
     }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
 }

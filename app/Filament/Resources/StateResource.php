@@ -79,4 +79,9 @@ class StateResource extends Resource
             'edit' => Pages\EditState::route('/{record}/edit'),
         ];
     }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
 }
