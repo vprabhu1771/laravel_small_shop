@@ -25,9 +25,15 @@ class Cart extends Model
         return $this->belongsTo(Product::class,'product_id');
     }
 
-    public function totalPrice()
+    // public function totalPrice()
+    // {
+    //     return $this->qty = $this->product->price;
+    // }
+
+    // Use an accessor for total price
+    public function getTotalPriceAttribute()
     {
-        return $this->qty = $this->product->price;
+        return $this->qty * ($this->product->price ?? 0);
     }
 
     // public function grandTotal($customerId)
