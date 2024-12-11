@@ -14,7 +14,7 @@ class OrderItem extends Model
         'product_id',
         'qty',
         'unit_price',
-        'amount',
+        'sub_total',
         'discount'
     ];
 
