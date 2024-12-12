@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('customer_id');
             $table->string('order_number');
             $table->timestamp('order_date')->useCurrent();
-            $table->decimal('total_amount', 10, 2);
+            $table->decimal('total_amount', 10, 2)->default(0);
             $table->string('order_status')->default(OrderStatus::ORDER_PLACED);
             $table->string('payment_method')->default(PaymentMethod::CASH);
 
