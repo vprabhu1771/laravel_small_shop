@@ -5,6 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+
+
 class Order extends Model
 {
     use HasFactory;
@@ -75,7 +80,7 @@ class Order extends Model
 
     public function customer(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'customer_id');
     }
 
     public function orderItems(): HasMany
@@ -85,7 +90,7 @@ class Order extends Model
 
     public function products(): BelongsToMany
     {
-        return $this->belongsToMany(Product::class, 'order_items');
+        return $this->hasMany(Product::class, 'order_items');
     }
 
     public function calculaterSGST(): float
