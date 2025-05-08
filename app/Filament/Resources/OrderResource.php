@@ -23,6 +23,9 @@ use Filament\Forms\Components\Actions\Action;
 use App\Enums\OrderStatus;
 use App\Enums\PaymentMethod;
 
+use Filament\Infolists\Components\RepeatableEntry;
+use Filament\Infolists\Components\TextEntry;
+
 class OrderResource extends Resource
 {
     protected static ?string $model = Order::class;
@@ -151,6 +154,18 @@ class OrderResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\Action::make('View Order History')
+                    // This is the important part!
+                    ->infolist([
+                        RepeatableEntry::make('history')
+                            ->schema([                                
+                                TextEntry::make('order_status'),
+                                TextEntry::make('payment_method'),
+                                TextEntry::make('updated_at')
+                            ])
+                            ->columns(3)
+                        
+                    ]),
                 // Tables\Actions\Action::make('Print')
                 //     ->icon('heroicon-o-printer') // Add an icon for the action
                 //     ->url(fn (Order $record): string => route('receipt.print', ['id' => $record->id]))
